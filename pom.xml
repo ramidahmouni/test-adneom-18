@@ -39,20 +39,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-        
-       	<!-- generating JAR file plugin -->
-        <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
- 					<archive>
-    					<manifest>
-							<addClasspath>false</addClasspath>
-							<mainClass>com.partitioner.Main</mainClass>
-    					</manifest>
-  					</archive>
-				</configuration>
-		</plugin>
 		
 	    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
   	 	<plugin>

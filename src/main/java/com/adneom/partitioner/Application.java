@@ -2,26 +2,22 @@ package com.adneom.partitioner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * AccessPoint for the spring boot application 
- * deployment defined in the MANIFEST.MF
+ * AccessPoint for the spring boot application deployment
  * 
  * @author rami.dahmouni
  *
  */
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer  {
-	
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-	return application.sources(Application.class);
+@Configuration
+@ComponentScan("com.adneom.partitioner.application")
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
 	}
-	
-	
-	public static void main(String[] args) throws Exception {
-	SpringApplication.run(Application.class, args);
-	}
+
 }

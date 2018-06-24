@@ -1,39 +1,42 @@
 package com.adneom.partitioner.application.utils;
 
-import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import com.adneom.demo.partitioner.utils.impl.PartitionsUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**@Autour rami.dahmouni
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+
+/**
+ * @Autour rami.dahmouni
  * 
- * Unit test for PartitionsUtils interface implementation 
+ *         Unit test for PartitionsUtils interface implementation
  * 
  */
+@RunWith(SpringRunner.class)
 @SpringBootTest
-public class PartitionsUtilsUT 
-{
-	
+public class PartitionsUtilsUT {
+
 	@Autowired
 	private PartitionsUtils partitionsUtils;
-	
+
 	/**
-	 * Unit Test using AssertJ for validation 
-	 * testing 2 cases
-	 * 
-	 * Case 1: 
-	 * 		the partition size is lower than maximum partition size
-	 * Case 2: 
-	 * 		the partition size is greaters than maximum partition size
-	 */
+	* Unit Test using AssertJ for validation testing 2 cases
+	* 
+	* Case 1: the partition size is lower than maximum partition size Case 2:
+	* the partition size is greaters than maximum partition size
+	*/
 	@Test
 	public void testPartitioner() {
 
+		/* GIVEN */
 		/* Case 1 */
 		List<String> str1 = new ArrayList<String>();
 
@@ -44,7 +47,7 @@ public class PartitionsUtilsUT
 		str1.add("5");
 
 		Integer partitionSize1 = 2;
-		
+
 		/* Case 2 */
 		List<String> str2 = new ArrayList<String>();
 
@@ -56,12 +59,14 @@ public class PartitionsUtilsUT
 
 		Integer partitionSize2 = 10;
 
+		/* WHEN */
 		// calling the methods
-		Boolean checkPartitionSizeTrue = PartitionsUtils.checkPartitionsSize(str1, partitionSize1);
-		Boolean checkPartitionSizeFalse = PartitionsUtils.checkPartitionsSize(str2, partitionSize2);
+		Boolean checkPartitionSizeTrue = partitionsUtils.checkPartitionsSize(str1, partitionSize1);
+		Boolean checkPartitionSizeFalse = partitionsUtils.checkPartitionsSize(str2, partitionSize2);
 
-		//AssertJ tests
+		/* THEN */
+		// AssertJ tests
 		Assertions.assertThat(checkPartitionSizeTrue).isTrue();
-		Assertions.assertThat(checkPartitionSizeFalse).isFalse();		
+		Assertions.assertThat(checkPartitionSizeFalse).isFalse();
 	}
 }

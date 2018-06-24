@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Component;
 import com.adneom.partitioner.application.Partitioner;
 import com.adneom.partitioner.domain.partitions.Partitions;
 import com.adneom.partitioner.domain.partitions.partition.Partition;
@@ -32,7 +31,7 @@ import com.adneom.partitioner.domain.partitions.partition.Partition;
  * 
  *
  */
-@Service
+@Component
 public class PartitionerImpl implements Partitioner {
 
 	

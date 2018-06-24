@@ -25,5 +25,5 @@ public interface PartitionsUtils {
 	 *            Integer maximum partition's size
 	 * @return boolean
 	 */
-	Boolean checkPartitionsSize(List<String> strList, Integer partitionSize);
+	Boolean checkPartitionsSize(final List<String> strList, final Integer partitionSize);
 }
